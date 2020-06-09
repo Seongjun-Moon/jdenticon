@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>jdenticon생성기</h1>
+      input:
+      <input type="text" v-model="newInput" /><br />
+      output:
+      <div v-html="newJdenticon"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jdenticon@2.2.0" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          newInput: "",
+        },
+        computed: {
+          newJdenticon() {
+            return jdenticon.toSvg(this.newInput, 200);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
